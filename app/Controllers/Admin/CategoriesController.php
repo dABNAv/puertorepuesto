@@ -22,8 +22,6 @@ class CategoriesController extends BaseController
 
     public function save()
     {
-        $category = new CategoriesModel();
-
         $validation = $this->validate([
             'name' => 'required|min_length[3]',
             'image' => [
@@ -33,29 +31,29 @@ class CategoriesController extends BaseController
             ]
         ]);
 
-        if(!$validation){
-            $session = session();
-            $session->setFlashdata('msj','Revise Informacion');
-            return redirect()->back()->withInput();
-            //return $this->response->redirect(base_url(route_to('categoriesList')));
+        if (! $validation) {
+            return redirect()->back()->withInput()->with('msg', [
+                'body' => 'Tienes campos incorrectos'
+            ])
+            ->with('errors', $this->validator->getErrors());
         }
 
+        $category = new CategoriesModel();
 
-        if($image = $this->request->getFile('image')){
-            $nameRandom = $image->getRandomName();
-            $image->move('../public/uploads/categories/',$nameRandom);
-            $datos = [
-                'name' => $this->request->getVar('name'),
-                'image' =>  $nameRandom
-            ];
+        $image = $this->request->getFile('image');
+        $nameRandom = $image->getRandomName();
+        $image->move('../public/uploads/categories/', $nameRandom);
+        $datos = [
+            'name' => $this->request->getVar('name'),
+            'image' =>  $nameRandom
+        ];
 
-            $category->insert($datos);
-        }
-
+        $category->insert($datos);
+        
         return $this->response->redirect(base_url(route_to('categoriesList')));
     }
 
-    public function edit($id=null)
+    public function edit($id)
     {
         $category = new CategoriesModel();
         $datos['category'] = $category->where('id',$id)->first();
@@ -65,6 +63,21 @@ class CategoriesController extends BaseController
 
     public function update()
     {
+        $validation = $this->validate([
+            'name' => 'required|min_length[3]',
+            'image' => [
+                'mime_in[image,image/jpg,image/jpeg,image/png]',
+                'max_size[image,4098]',
+            ]
+        ]);
+
+        if (! $validation) {
+            return redirect()->back()->withInput()->with('msg', [
+                'body' => 'Tienes campos incorrectos'
+            ])
+            ->with('errors', $this->validator->getErrors());
+        }
+
         $category = new CategoriesModel();
         $datos = [
             'name' => $this->request->getVar('name')
@@ -72,31 +85,23 @@ class CategoriesController extends BaseController
         $id = $this->request->getVar('id');
         $category->update($id, $datos);
 
-        $validation = $this->validate([
-            'image' => [
-                'uploaded[image]',
-                'mime_in[image,image/jpg,image/jpeg,image/png]',
-                'max_size[image,4098]',
-            ]
-        ]);
+        $image = $this->request->getFile('image');
+        if ($image->getName()) {
+            $data_category = $category->where('id',$id)->first();   
+            $rute = ('../public/uploads/categories/'.$data_category['image']);
+            unlink($rute);
 
-        if($validation){
-            if($image = $this->request->getFile('image')){
-                $data_category = $category->where('id',$id)->first();     
-                $rute = ('../public/uploads/categories/'.$data_category['image']);
-                unlink($rute);
+            $nameRandom = $image->getRandomName();
+            $image->move('../public/uploads/categories/', $nameRandom);
 
-                $nameRandom = $image->getRandomName();
-                $image->move('../public/uploads/categories/',$nameRandom);
-
-                $datos = ['image' =>  $nameRandom];
-                $category->update($id,$datos);
-            }
+            $datos = ['image' =>  $nameRandom];
+            $category->update($id,$datos);
         }
 
+        return $this->response->redirect(base_url(route_to('categoriesList')));
     }
 
-    public function delete($id=null)
+    public function delete($id)
     {
         $category = new CategoriesModel();
         $data_category = $category->where('id', $id)->first();
@@ -106,8 +111,5 @@ class CategoriesController extends BaseController
         $category->where('id', $id)->delete($id);
 
         return $this->response->redirect(base_url(route_to('categoriesList')));
-    }
-
-
-        
+    }  
 }
