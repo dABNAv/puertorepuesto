@@ -8,6 +8,7 @@ class Users extends Migration
 {
     public function up()
     {
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',
@@ -33,10 +34,11 @@ class Users extends Migration
                 'constraint' => '60',
                 'null'       => false,
             ],
-            'role' => [
-                'type'       => 'ENUM("Admin","Customer")',
-                'default' => "Customer",
-                'null'       => false,
+            'role_id' => [
+                'type'           => 'INT',
+                'constraint'     => 12,
+                'unsigned'       => true,
+                'null'           => false,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -52,7 +54,11 @@ class Users extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+
+        $this->forge->addForeignKey('role_id','roles','id', 'CASCADE', 'CASCADE');
+
         $this->forge->createTable('users');
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()
