@@ -49,7 +49,7 @@ class LoginController extends BaseController
 
         session()->set([
             'id' => $user['id'],
-            'full_name' => $user['full_name'],
+            'full_name' => $user['name'] . ' ' . $user['surname'],
             'role' => $user['role'],
             'is_logged' => true
         ]);

@@ -65,6 +65,16 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->get('eliminar/(:num)', 'UsersController::delete/$1', ['as' => 'usersDelete']);
     });
 
+    $routes->group('clientes', function($routes)
+    {
+        $routes->get('/', 'CustomersController::index', ['as' => 'customersList']);
+        $routes->get('nuevo', 'CustomersController::create', ['as' => 'customersCreate']);
+        $routes->post('save', 'CustomersController::save', ['as' => 'customersSave']);
+        $routes->get('editar/(:num)', 'CustomersController::edit/$1', ['as' => 'customersEdit']);
+        $routes->post('update', 'CustomersController::update', ['as' => 'customersUpdate']);
+        $routes->get('eliminar/(:num)', 'CustomersController::delete/$1', ['as' => 'customersDelete']);
+    });
+
     $routes->get('productos', 'ProductsController::index', ['as' => 'productsList']);
 });
 

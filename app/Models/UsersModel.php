@@ -10,7 +10,7 @@ class UsersModel extends Model
 
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['full_name', 'email', 'password', 'role_id'];
+    protected $allowedFields = ['name', 'surname', 'email', 'password', 'role'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
@@ -23,11 +23,6 @@ class UsersModel extends Model
         return $this->where($column, $value)->first();
     }
 
-    protected function setPassword(string $password)
-    {
-        $this->attributes['password'] = password_hash($password,PASSWORD_DEFAULT);
-    }
-
     public function getUsers()
     {
         $db = Database::connect();
@@ -36,6 +31,18 @@ class UsersModel extends Model
         $builder->where('users.deleted_at', null);
         $builder->where('users.role', 'Superadmin');
         $builder->orWhere('users.role', 'Admin');
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
+
+    public function getCustomers()
+    {
+        $db = Database::connect();
+        $builder = $db->table('users');
+        $builder->select('users.*');
+        $builder->where('users.deleted_at', null);
+        $builder->where('users.role', 'Customer');
         $query = $builder->get();
         
         return $query->getResult();

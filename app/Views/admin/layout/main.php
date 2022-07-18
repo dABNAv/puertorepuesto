@@ -81,12 +81,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url(route_to('usersList')); ?>" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Usuarios
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url(route_to('usersList')); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Administradores</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url(route_to('customersList')); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Clientes</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item">

@@ -1,6 +1,6 @@
 <?= $this->extend('admin/layout/main') ?>
 
-<?= $this->section('title') ?> Administradores <?= $this->endSection() ?>
+<?= $this->section('title') ?> Clientes <?= $this->endSection() ?>
 
 <?= $this->section('content') ?> 
     <!-- Content Header (Page header) -->
@@ -8,11 +8,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Aministradores</h1>
+                    <h1 class="m-0">Clientes</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <div class="float-sm-right">
-                        <a href="<?= base_url(route_to('usersCreate')) ?>" class="btn btn-primary">
+                        <a href="<?= base_url(route_to('customersCreate')) ?>" class="btn btn-primary">
                             <i class="fas fa-plus"></i> Agregar
                         </a>
                     </div>
@@ -55,9 +55,9 @@
                                     <td> <?= $key->created_at ?> </td>
                                     <td> <?= $key->updated_at ?> </td>
                                     <td>
-                                        <a class="btn btn-sm btn-info" href="<?= base_url(route_to('usersEdit', $key->id)) ?>"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-sm btn-info" href="<?= base_url(route_to('customersEdit', $key->id)) ?>"><i class="fas fa-edit"></i></a>
 
-                                        <a class="btn btn-sm btn-danger" href="<?= base_url(route_to('usersDelete', $key->id)) ?>" onclick="return confirm('Realmente quiere eliminar el registro?')"><i class="fas fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-danger" href="<?= base_url(route_to('customersDelete', $key->id)) ?>" onclick="return confirm('Realmente quiere eliminar el registro?')"><i class="fas fa-trash"></i></a>
                                     </td>        
                                 </tr>
                                 
@@ -86,3 +86,4 @@
   });
 </script>
 <?= $this->endSection() ?>
+

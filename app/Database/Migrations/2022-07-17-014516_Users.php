@@ -16,11 +16,15 @@ class Users extends Migration
                 'auto_increment' => true,
                 'null'           => false,
             ],
-            'full_name' => [
+            'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
                 'null'       => false,
-                'unique'     => true,
+            ],
+            'surname' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'       => false,
             ],
             'email' => [
                 'type'       => 'VARCHAR',

@@ -10,9 +10,19 @@ class Users extends Seeder
     {
         $user = [
             [
-                'full_name' => 'Esteban Barria',
+                'name' => 'Esteban',
+                'surname' => 'Barria',
                 'email' => 'dabnav1995@gmail.com',
                 'role' => 'Superadmin',
+                'password' => password_hash('123', PASSWORD_DEFAULT),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'Fabian',
+                'surname' => 'Barria',
+                'email' => 'fabian@gmail.com',
+                'role' => 'Customer',
                 'password' => password_hash('123', PASSWORD_DEFAULT),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
