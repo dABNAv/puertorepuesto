@@ -57,16 +57,16 @@
                         <tbody>
                             <?php foreach ($users as $key):?> 
                                 <tr>
-                                <th scope="row"> <?= $key->id ?> </th>
-                                <td> <?= $key->full_name ?> </td>
-                                <td> <?= $key->email ?> </td>
-                                <td> <?= $key->role ?> </td>
-                                <td> <?= $key->created_at ?> </td>
-                                <td> <?= $key->updated_at ?> </td>
-                                <td>
-                                <a href="" class="fas fa-pencil-alt fs-5 text-primary"></a>
-                                <a href="" data-toggle="modal" data-target="#modalDelete" data-placement="top" title="Eliminar" class="fas fa-trash-alt fs-5 text-danger"></a>
-                                </td>
+                                    <th scope="row"> <?= $key->id ?> </th>
+                                    <td> <?= $key->full_name ?> </td>
+                                    <td> <?= $key->email ?> </td>
+                                    <td> <?= $key->role ?> </td>
+                                    <td> <?= $key->created_at ?> </td>
+                                    <td> <?= $key->updated_at ?> </td>
+                                    <td>
+                                    <a href="" class="fas fa-pencil-alt fs-5 text-primary"></a>
+                                    <a href="" data-toggle="modal" data-target="#modalDelete" data-placement="top" title="Eliminar" class="fas fa-trash-alt fs-5 text-danger"></a>
+                                    </td>
                                 </tr>
                                 
                             <?php endforeach; ?>

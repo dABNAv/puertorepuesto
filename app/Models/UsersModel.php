@@ -1,14 +1,13 @@
 <?php
 namespace App\Models;
 use CodeIgniter\Model;
-use App\Entities\UsersEntities;
+use Config\Database;
 
 class UsersModel extends Model
 {
     protected $table      = 'users';
     protected $primaryKey = 'id';
 
-    protected $returnType     = UsersEntities::class;
     protected $useSoftDeletes = true;
 
     protected $allowedFields = ['full_name', 'email', 'password', 'role_id'];
@@ -28,4 +27,31 @@ class UsersModel extends Model
     {
         $this->attributes['password'] = password_hash($password,PASSWORD_DEFAULT);
     }
+
+    public function getUsers()
+    {
+        $db = Database::connect();
+        $builder = $db->table('users');
+        $builder->select('users.*');
+        $builder->where('users.deleted_at', null);
+        $builder->where('users.role', 'Superadmin');
+        $builder->orWhere('users.role', 'Admin');
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
+
+    /*
+    public function getUsersWithRoles()
+    {
+        $db = Database::connect();
+        $builder = $db->table('users');
+        $builder->select('users.*, roles.name as role_name');
+        $builder->join('roles', 'roles.id = users.role_id');
+        $builder->where('users.deleted_at', null);
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
+    */
 }

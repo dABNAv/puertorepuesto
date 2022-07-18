@@ -10,7 +10,7 @@ class CategoriesController extends BaseController
     {
         $category = new CategoriesModel();
         $datos = [
-            'category' => $category->findAll()
+            'category' => $category->getCategories()
         ];
         return view('admin/categories/index', $datos);
     }
@@ -50,7 +50,7 @@ class CategoriesController extends BaseController
 
         $category->insert($datos);
         
-        return $this->response->redirect(base_url(route_to('categoriesList')));
+        return redirect()->route('categoriesList')->with('message', 'Registro creado exitosamente!');
     }
 
     public function edit($id)
@@ -98,7 +98,7 @@ class CategoriesController extends BaseController
             $category->update($id,$datos);
         }
 
-        return $this->response->redirect(base_url(route_to('categoriesList')));
+        return redirect()->route('categoriesList')->with('message', 'Registro actualizado exitosamente!');
     }
 
     public function delete($id)
@@ -108,8 +108,8 @@ class CategoriesController extends BaseController
         $rute = ('../public/uploads/categories/'.$data_category['image']);
         unlink($rute);
 
-        $category->where('id', $id)->delete($id);
+        $category->where('id', $id)->delete();
 
-        return $this->response->redirect(base_url(route_to('categoriesList')));
+        return redirect()->route('categoriesList')->with('message', 'Registro eliminado exitosamente!');
     }  
 }

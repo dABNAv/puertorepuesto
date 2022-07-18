@@ -39,7 +39,7 @@ class LoginController extends BaseController
             ]);
         }
 
-        if (!password_verify($password, $user->password))
+        if (!password_verify($password, $user['password']))
         {
             return redirect()->back()->with('msg', [
                 'type' => 'danger',
@@ -47,19 +47,18 @@ class LoginController extends BaseController
             ]);
         }
 
-        //crear un IF con el ROLE para denegar accesos, usando el metodo userby dentro de userentities //
-
         session()->set([
-            'id' => $user->id,
-            'full_name' => $user->full_name,
+            'id' => $user['id'],
+            'full_name' => $user['full_name'],
+            'role' => $user['role'],
             'is_logged' => true
         ]);
 
-        return redirect()->route('homeAdmin')->with('msg' , [
-            'type' => 'success',
-            'body' => 'Bienvenido! '
-        ]);
+        if ($user['role'] == 'Superadmin' || $user['role'] == 'Admin') {
+            return redirect()->route('homeAdmin')->with('msg' , 'Bienvenido al panel de administracion!');
+        } 
 
+        return redirect()->route('homeCusomer')->with('msg' , 'Bienvenido!');
     }
 
     public function signout()

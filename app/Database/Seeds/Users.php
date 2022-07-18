@@ -12,8 +12,8 @@ class Users extends Seeder
             [
                 'full_name' => 'Esteban Barria',
                 'email' => 'dabnav1995@gmail.com',
-                'role_id' => 1, // Administrador
-                'password' => password_hash('123',PASSWORD_DEFAULT),
+                'role' => 'Superadmin',
+                'password' => password_hash('123', PASSWORD_DEFAULT),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]

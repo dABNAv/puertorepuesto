@@ -1,5 +1,7 @@
 <?= $this->extend('admin/layout/main') ?>
 
+<?= $this->section('title') ?> Categorias <?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
