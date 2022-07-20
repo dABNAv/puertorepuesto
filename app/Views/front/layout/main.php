@@ -232,7 +232,7 @@
 
 						<div class="col-md-4 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Information</h3>
+								<h3 class="footer-title">Informacion</h3>
 								<ul class="footer-links">
 									<li><a href="#">Acerca de</a></li>
 									<li><a href="#">Contactanos</a></li>
