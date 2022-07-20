@@ -34,10 +34,10 @@ $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
     $routes->get('/', 'HomeController::index', ['as' => 'homePage']);
     $routes->get('producto', 'HomeController::view_product', ['as' => 'productPage']);
 
-    $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
+   /* $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
     {
         $routes->get('/', 'HomeController::index', ['as' => 'homeCusomer']);
-    });
+    });*/
 });
 
 // Backend routes
@@ -75,7 +75,33 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->get('eliminar/(:num)', 'CustomersController::delete/$1', ['as' => 'customersDelete']);
     });
 
-    $routes->get('productos', 'ProductsController::index', ['as' => 'productsList']);
+    $routes->group('productos', function($routes)
+    {
+        $routes->get('/', 'ProductsController::index', ['as' => 'productsList']);
+        $routes->get('nuevo', 'ProductsController::create', ['as' => 'productsCreate']);
+        $routes->post('nuevo', 'ProductsController::save', ['as' => 'productsSave']);
+    });
+
+    $routes->group('auto/marca', function($routes)
+    {
+        $routes->get('/', 'CarBrandsController::index', ['as' => 'carBrandsList']);
+        $routes->get('nueva', 'CarBrandsController::create', ['as' => 'carBrandsCreate']);
+        $routes->post('save', 'CarBrandsController::save', ['as' => 'carBrandsSave']);
+        $routes->get('editar/(:num)', 'CarBrandsController::edit/$1', ['as' => 'carBrandsEdit']);
+        $routes->post('update', 'CarBrandsController::update', ['as' => 'carBrandsUpdate']);
+        $routes->get('eliminar/(:num)', 'CarBrandsController::delete/$1', ['as' => 'carBrandsDelete']);
+    });
+
+    $routes->group('auto/modelo', function($routes)
+    {
+        $routes->get('/', 'CarModelsController::index', ['as' => 'carModelsList']);
+        $routes->get('nuevo', 'CarModelsController::create', ['as' => 'carModelsCreate']);
+        $routes->post('save', 'CarModelsController::save', ['as' => 'carModelsSave']);
+        $routes->get('editar/(:num)', 'CarModelsController::edit/$1', ['as' => 'carModelsEdit']);
+        $routes->post('update', 'CarModelsController::update', ['as' => 'carModelsUpdate']);
+        $routes->get('eliminar/(:num)', 'CarModelsController::delete/$1', ['as' => 'carModelsDelete']);
+    });
+
 });
 
 /*

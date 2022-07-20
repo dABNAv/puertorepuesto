@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/daterangepicker/daterangepicker.css'); ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/summernote/summernote-bs4.min.css'); ?>">
+  <?= $this->renderSection('css') ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -85,6 +86,7 @@
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Usuarios
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -107,7 +109,7 @@
 
           <li class="nav-item">
             <a href="" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-archive"></i>
               <p>
                 Productos
                 <i class="right fas fa-angle-left"></i>
@@ -126,6 +128,32 @@
                 <a href="<?= base_url(route_to('categoriesList')); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categorias</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-car"></i>
+              <p>
+                Autos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url(route_to('carBrandsList')); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marcas</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url(route_to('carModelsList')); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Modelos</p>
                 </a>
               </li>
             </ul>

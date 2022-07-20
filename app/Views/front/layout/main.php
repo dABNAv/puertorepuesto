@@ -60,7 +60,7 @@
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="<?= base_url(route_to('homePage')) ?>" class="logo">
-									<img src="<?= base_url('assets/frontend/img/logo.png'); ?>" alt="">
+									<img src="<?= base_url('assets/frontend/img/logo1.png'); ?>" alt="">
 								</a>
 							</div>
 						</div>

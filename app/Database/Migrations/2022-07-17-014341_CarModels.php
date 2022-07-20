@@ -22,7 +22,7 @@ class CarModels extends Migration
                 'constraint' => '255',
                 'null'       => false,
             ],
-            'tittle' => [
+            'title' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
                 'null'       => false,

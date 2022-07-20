@@ -22,7 +22,7 @@ class Products extends Migration
                 'constraint' => '255',
                 'null'       => false,
             ],
-            'descripcion' => [
+            'description' => [
                 'type'       => 'TEXT',
                 'null'       => false,
             ],
