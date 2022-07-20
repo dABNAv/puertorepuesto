@@ -5,15 +5,27 @@ use App\Controllers\BaseController;
 use App\Models\CategoriesModel;
 use App\Models\ProductImagesModel;
 use App\Models\InventoryModel;
-use App\Models\ProductModel;
 use App\Models\ProductsModel;
 
 class ProductsController extends BaseController
 {
     public function index()
     {
+        $productModel = new ProductsModel();
+        $products = [];
+
+        // iteramos todos los productos y le agregamos la foto (porque tiene varias fotos)
+        foreach ($productModel->getProducts() as $product) {
+            // creamos propiedad "image"
+            $product->image = $productModel->getImages($product->id)[0]->name;
+            $products[] = $product;
+        }
+
+        $datos = [
+            'products' => $products
+        ];
         
-        return view('admin/products/index');
+        return view('admin/products/index', $datos);
     }
         
     public function create()
@@ -24,26 +36,31 @@ class ProductsController extends BaseController
         ];
         return view('admin/products/create', $datos);
     }
+    
     public function save()
     {
         $validation = $this->validate([
             'name' => 'required|min_length[3]',
+            'description' => 'required',
             'price' => 'required',
-            'quantity' => 'required',
-            'description' => 'required'
+            'quantity' => 'required'
         ]);
+
         if (! $validation) {
             return redirect()->back()->withInput()->with('msg', [
                 'body' => 'Tienes campos incorrectos'
             ])
             ->with('errors', $this->validator->getErrors());
         }
+
+        // crear inventario
         $inventory = new InventoryModel();
         $dato_cantidad = [
             'quantity' =>  $this->request->getVar('quantity')
         ];
         $inventory->insert($dato_cantidad);
 
+        // crear producto
         $products = new ProductsModel();
         $dato = [
             'name' =>  $this->request->getVar('name'),
@@ -53,17 +70,28 @@ class ProductsController extends BaseController
             'category_id' =>  $this->request->getVar('category_id')
         ];
         $products->insert($dato);
-        /*
-        $productImages = new ProductImagesModel();
-        $images = $this->request->getFile('images');
-       dd($validation);
-        $nameRandom = $images->getRandomName();
-        $images->move('../public/uploads/products/', $nameRandom);
-        $datos_products = [
-            'name' => $this->request->getVar('name'),
-            'images' =>  $nameRandom
-        ];
-        $productImages->insert($datos_products);*/
 
+        // subir imagenes
+        $images = $this->request->getFileMultiple('images');
+        foreach($images as $image) {   
+            $productImage = new ProductImagesModel();
+
+            // movemos imagen
+            $nameRandom = $image->getRandomName();
+            $image->move('../public/uploads/products/', $nameRandom);
+
+            // crear carpeta con nombre ID producto
+            // $image->move('../public/uploads/products/' . $products->getInsertID() . '/', $nameRandom);
+
+            // guardamos imagen
+            $datos = [
+                'name' => $nameRandom,
+                'product_id' =>  $products->getInsertID()
+            ];
+
+            $productImage->insert($datos);
+        }
+
+        return redirect()->route('productsList')->with('message', 'Registro creado exitosamente!');
     }
 }

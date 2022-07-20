@@ -16,18 +16,4 @@ class ProductImagesModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
-
-    public function getCustomers()
-    {
-        $db = Database::connect();
-        $builder = $db->table('users');
-        $builder->select('users.*');
-        $builder->where('users.deleted_at', null);
-        $builder->where('users.role', 'Customer');
-        $query = $builder->get();
-        
-        return $query->getResult();
-    }
-
-
 }

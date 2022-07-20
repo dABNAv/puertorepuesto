@@ -42,7 +42,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($products as $key) : ?>
+                                <tr>
+                                    <td><img src="<?= base_url('uploads/products/' . $key->image) ?>" class="img-fluid img-rounded" style="width: 100px;" alt="<?= $key->name ?>"></td>
+                                    <td> <?= $key->category_name ?> </td>
+                                    <td> <?= $key->name ?> </td>
+                                    <td> <?= $key->price ?> </td>
+                                    <td> <?= $key->stock ?> </td>
+                                    <td> <?= date("d-m-Y", strtotime($key->created_at)) ?> </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info" href="<?= base_url(route_to('productsEdit', $key->id)) ?>"><i class="fas fa-edit"></i></a>
 
+                                        <a class="btn btn-sm btn-danger" href="<?= base_url(route_to('productsDelete', $key->id)) ?>" onclick="return confirm('Realmente quiere eliminar el registro?')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

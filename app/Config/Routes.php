@@ -17,17 +17,6 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
-// Auth routes
-$routes->group('auth', ['namespace' => 'App\Controllers\Auth'], function($routes)
-{
-    $routes->get('login', 'LoginController::index', ['as' => 'login']);
-    $routes->post('signin', 'LoginController::login', ['as' => 'signin']);
-    $routes->get('signout', 'LoginController::signout', ['as' => 'signout']);
-    $routes->get('bye', 'LoginController::signout', ['as' => 'homePage']);
-    $routes->get('registro', 'RegisterController::index', ['as' => 'register']);
-    $routes->post('store', 'RegisterController::store');
-});
-
 // Frontend routes
 $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
 {
@@ -102,6 +91,17 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->get('eliminar/(:num)', 'CarModelsController::delete/$1', ['as' => 'carModelsDelete']);
     });
 
+});
+
+// Auth routes
+$routes->group('auth', ['namespace' => 'App\Controllers\Auth'], function($routes)
+{
+    $routes->get('login', 'LoginController::index', ['as' => 'login']);
+    $routes->post('signin', 'LoginController::login', ['as' => 'signin']);
+    $routes->get('signout', 'LoginController::signout', ['as' => 'signout']);
+    $routes->get('bye', 'LoginController::signout', ['as' => 'homePage']);
+    $routes->get('registro', 'RegisterController::index', ['as' => 'register']);
+    $routes->post('store', 'RegisterController::store');
 });
 
 /*
