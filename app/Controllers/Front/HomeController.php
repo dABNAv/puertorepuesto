@@ -14,7 +14,12 @@ class HomeController extends BaseController
     public function viewproduct($id)
     {
         $products = new ProductsModel();
-        return view('front/product', ['product' => $products->getProductById($id)]);
+        $data = [
+            'product' => $products->getProductById($id),
+            'images' => $products->getImages($id)
+        ];
+        
+        return view('front/product', $data);
     }
         
 }

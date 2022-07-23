@@ -32,9 +32,9 @@
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
-							<?php for($i=0; $i < $product) :?>
+							<?php for($i = 0; $i < count($images); $i++) :?>
 								<div class="product-preview">
-									<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
+									<img src="<?= base_url('uploads/products/' . $images[$i]->name); ?>" alt="">
 								</div>
 							<?php endfor; ?>
 						</div>
@@ -44,9 +44,11 @@
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
+							<?php for($i = 0; $i < count($images); $i++) :?>
 								<div class="product-preview">
-									<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
+									<img src="<?= base_url('uploads/products/' . $images[$i]->name); ?>" alt="">
 								</div>
+							<?php endfor; ?>
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -79,8 +81,8 @@
 							</div>
 
 							<ul class="product-links">
-								<li>Categorias:</li>
-								<li><a href="#">Headphones</a></li>
+								<li>Categoria:</li>
+								<li><span class="badge badge-primary"><?= $product[0]->category_name ?></span></li>
 							</ul>
 
 							<ul class="product-links">
