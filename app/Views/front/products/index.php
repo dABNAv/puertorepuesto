@@ -10,9 +10,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">All Categories</a></li>
-							<li><a href="#">Accessories</a></li>
+							<li><a href="<?= base_url(route_to('homePage')) ?>">Inicio</a></li>
+							<li><a href="#"><?= $product[0]->category_name ?></a></li>
+							<li><a href="#"><?= $product[0]->name ?></a></li>
 						</ul>
 					</div>
 				</div>

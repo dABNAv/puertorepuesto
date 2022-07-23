@@ -19,7 +19,7 @@ class HomeController extends BaseController
             'images' => $products->getImages($id)
         ];
         
-        return view('front/product', $data);
+        return view('front/products/index', $data);
     }
         
 }
