@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Front;
 use App\Controllers\BaseController;
-
+use App\Models\ProductsModel;
 
 class HomeController extends BaseController
 {
@@ -11,9 +11,10 @@ class HomeController extends BaseController
         return view('front/index');
     }
 
-    public function view_product()
+    public function viewproduct($id)
     {
-        return view('front/product');
+        $products = new ProductsModel();
+        return view('front/product', ['product' => $products->getProductById($id)]);
     }
         
 }

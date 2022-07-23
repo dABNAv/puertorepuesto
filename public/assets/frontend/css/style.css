@@ -932,6 +932,11 @@ textarea.input {
   font-size: 18px;
 }
 
+.product .product-body .product-stock {
+  color: #D10024;
+  font-size: 18px;
+}
+
 .product .product-body .product-price .product-old-price {
   font-size: 70%;
   font-weight: 400;

@@ -43,4 +43,16 @@ class ProductsModel extends Model
         
         return $query->getResult(); 
     }
+
+    public function getProductById($id)
+    {
+        $db = Database::connect();
+        $builder = $db->table('products');
+        $builder->select('products.*, categories.name as category_name, inventory.quantity as stock');
+        $builder->join('categories', 'categories.id = products.category_id');
+        $builder->join('inventory', 'inventory.id = products.inventory_id');
+        $builder->where('products.id', $id);
+        $query = $builder->get();
+        return $query->getResult(); 
+    }
 }

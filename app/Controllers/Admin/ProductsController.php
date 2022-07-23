@@ -16,8 +16,10 @@ class ProductsController extends BaseController
 
         // iteramos todos los productos y le agregamos la foto (porque tiene varias fotos)
         foreach ($productModel->getProducts() as $product) {
+            $images = $productModel->getImages($product->id);
             // creamos propiedad "image"
-            $product->image = $productModel->getImages($product->id)[0]->name;
+            $product->image = (count($images)) ? $images[0]->name : '';
+            
             $products[] = $product;
         }
 

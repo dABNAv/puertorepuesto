@@ -11,11 +11,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="<?= base_url('assets/frontend/img/shop01.png'); ?>" alt="">
+								<img src="<?= base_url('assets/frontend/img/luces.png'); ?>" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Luces<br>Coleccion</h3>
-								<a href="#" class="cta-btn">Ver más <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Luces</h3>
+								<a href="#" class="cta-btn">Ver más  <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -25,11 +25,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="<?= base_url('assets/frontend/img/shop03.png'); ?>" alt="">
+								<img src="<?= base_url('assets/frontend/img/aceites.png'); ?>" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Ver más <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Aceites</h3>
+								<a href="#" class="cta-btn">Ver más  <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -39,11 +39,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="<?= base_url('assets/frontend/img/shop02.png'); ?>" alt="">
+								<img src="<?= base_url('assets/frontend/img/neumaticos.png'); ?>" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Ver más <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Neumaticos</h3>
+								<a href="#" class="cta-btn">Ver más  <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>

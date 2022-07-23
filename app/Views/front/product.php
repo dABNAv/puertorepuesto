@@ -22,6 +22,7 @@
 		</div>
 		<!-- /BREADCRUMB -->
 
+
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -31,21 +32,11 @@
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product03.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product06.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product08.png'); ?>" alt="">
-							</div>
+							<?php for($i=0; $i < $product) :?>
+								<div class="product-preview">
+									<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
+								</div>
+							<?php endfor; ?>
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -53,21 +44,9 @@
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product03.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product06.png'); ?>" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="<?= base_url('assets/frontend/img/product08.png'); ?>" alt="">
-							</div>
+								<div class="product-preview">
+									<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
+								</div>
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
@@ -75,9 +54,9 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">product name goes here</h2>
+							<h2 class="product-name"><?= $product[0]->name ?></h2>
 							<div>
-								<h3 class="product-price">$980.00</h3>
+								<h3 class="product-price">$ <?= number_format($product[0]->price, 0, '', '.') ?></h3>
 								
 							</div>
 			
@@ -92,6 +71,11 @@
 									</div>
 								</div>
 								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar al carro</button>
+							</div>
+							<div>
+
+								<h4 class="product-stock">Stock: <?= $product[0]->stock ?></h4>
+								
 							</div>
 
 							<ul class="product-links">
@@ -115,9 +99,7 @@
 						<div id="product-tab">
 							<!-- product tab nav -->
 							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
-								<li><a data-toggle="tab" href="#tab2">Details</a></li>
-								
+								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>							
 							</ul>
 							<!-- /product tab nav -->
 
@@ -127,20 +109,13 @@
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<p><?= $product[0]->description ?></p>
 										</div>
 									</div>
 								</div>
 								<!-- /tab1  -->
 
 								<!-- tab2  -->
-								<div id="tab2" class="tab-pane fade in">
-									<div class="row">
-										<div class="col-md-12">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										</div>
-									</div>
-								</div>
 								<!-- /tab2  -->
 							</div>
 							<!-- /product tab content  -->

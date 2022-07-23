@@ -21,7 +21,7 @@ $routes->set404Override();
 $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
 {
     $routes->get('/', 'HomeController::index', ['as' => 'homePage']);
-    $routes->get('producto', 'HomeController::view_product', ['as' => 'productPage']);
+    $routes->get('producto/(:num)', 'HomeController::viewproduct/$1', ['as' => 'productPage']);
 
    /* $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
     {
@@ -68,7 +68,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
     {
         $routes->get('/', 'ProductsController::index', ['as' => 'productsList']);
         $routes->get('nuevo', 'ProductsController::create', ['as' => 'productsCreate']);
-        $routes->post('nuevo', 'ProductsController::save', ['as' => 'productsSave']);
+        $routes->post('save', 'ProductsController::save', ['as' => 'productsSave']);
     });
 
     $routes->group('auto/marca', function($routes)

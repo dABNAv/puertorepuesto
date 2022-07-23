@@ -31,7 +31,7 @@
 
     <form action="<?= base_url(route_to('customersUpdate')) ?>" class="border p-3 form" method="POST">
 
-        <input type="text" name="id" value="<?= $users['id'] ?>">
+        <input type="hidden" name="id" value="<?= $users['id'] ?>">
 
             <div class="form-group">
                 <label for="name">Nombre</label>
