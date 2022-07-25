@@ -180,7 +180,8 @@ use App\Models\CategoriesModel;
 						<li><a href="#">Neumaticos</a></li>
 						<li><a href="#">Baterías</a></li>
 						<li><a href="#">Aceites</a></li>
-						<li><a href="#">Iluminacion</a></li>
+						<li><a href="#">Amortiguadores</a></li>
+						<li><a href="">Iluminacion</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>

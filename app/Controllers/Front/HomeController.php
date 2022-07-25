@@ -3,6 +3,7 @@
 namespace App\Controllers\Front;
 use App\Controllers\BaseController;
 use App\Models\ProductsModel;
+use App\Models\CategoriesModel;
 
 class HomeController extends BaseController
 {
@@ -24,13 +25,17 @@ class HomeController extends BaseController
 
     public function viewCategory($id)
     {
+        
         $products = new ProductsModel();
+        $category = new CategoriesModel();
         $data = [
-            'product' => $products->getProductById($id),
-            'images' => $products->getImages($id)
+            'product' => $products->getProductByCategory($id),
+            'images' => $products->getImages($id),
+            'category' => $category->getCategoryById($id)
         ];
         
         return view('front/categories/index', $data);
     }
         
 }
+    

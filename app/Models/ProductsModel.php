@@ -55,4 +55,16 @@ class ProductsModel extends Model
         $query = $builder->get();
         return $query->getResult(); 
     }
+
+    public function getProductByCategory($id)
+    {
+        $db = Database::connect();
+        $builder = $db->table('products');
+        $builder->select('products.*');
+        $builder->join('categories', 'categories.id = products.category_id');
+        $builder->where('categories.id', $id);
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
 }

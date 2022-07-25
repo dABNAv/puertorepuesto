@@ -27,4 +27,15 @@ class CategoriesModel extends Model
         
         return $query->getResult();
     }
+
+    public function getCategoryById($id)
+    {
+        $db = Database::connect();
+        $builder = $db->table('categories');
+        $builder->select('categories.*');
+        $builder->where('categories.id', $id);
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
 }
