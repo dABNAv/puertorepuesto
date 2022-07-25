@@ -1,3 +1,13 @@
+<?php
+
+use App\Models\CategoriesModel;
+
+	$category = new CategoriesModel();
+	$categories = $category->getCategories()	
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -71,9 +81,9 @@
 							<div class="header-search">
 								<form>
 									<select class="input-select">
-										<option value="0">Categorias</option>
-										<option value="1">Categoria 1</option>
-										<option value="1">Categoria 2</option>
+									<?php foreach ($categories as $key) : ?>				
+										<option value="0"><?= $key->name ?></option>
+										<?php endforeach; ?>	
 									</select>
 									<input class="input" placeholder="Search here">
 									<button class="search-btn">Busqueda</button>

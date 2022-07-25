@@ -11,7 +11,7 @@ class HomeController extends BaseController
         return view('front/index');
     }
 
-    public function viewproduct($id)
+    public function viewProduct($id)
     {
         $products = new ProductsModel();
         $data = [
@@ -20,6 +20,17 @@ class HomeController extends BaseController
         ];
         
         return view('front/products/index', $data);
+    }
+
+    public function viewCategory($id)
+    {
+        $products = new ProductsModel();
+        $data = [
+            'product' => $products->getProductById($id),
+            'images' => $products->getImages($id)
+        ];
+        
+        return view('front/categories/index', $data);
     }
         
 }

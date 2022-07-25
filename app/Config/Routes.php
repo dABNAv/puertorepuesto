@@ -21,8 +21,8 @@ $routes->set404Override();
 $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
 {
     $routes->get('/', 'HomeController::index', ['as' => 'homePage']);
-    $routes->get('producto/(:num)', 'HomeController::viewproduct/$1', ['as' => 'productPage']);
-
+    $routes->get('producto/(:num)', 'HomeController::viewProduct/$1', ['as' => 'productPage']);
+    $routes->get('categoria/(:num)', 'HomeController::viewCategory/$1', ['as' => 'categoryPage']);
    /* $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
     {
         $routes->get('/', 'HomeController::index', ['as' => 'homeCusomer']);
