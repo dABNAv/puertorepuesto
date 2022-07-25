@@ -101,7 +101,7 @@
 						<div id="product-tab">
 							<!-- product tab nav -->
 							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>							
+								<li class="active"><a data-toggle="tab" href="#tab1">Descripcion</a></li>							
 							</ul>
 							<!-- /product tab nav -->
 

@@ -176,12 +176,9 @@ use App\Models\CategoriesModel;
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li><a href="<?= base_url(route_to('homePage')) ?>">Inicio</a></li>
-						<li><a href="#">Repuestos</a></li>
-						<li><a href="#">Neumaticos</a></li>
-						<li><a href="#">Baterías</a></li>
-						<li><a href="#">Aceites</a></li>
-						<li><a href="#">Amortiguadores</a></li>
-						<li><a href="">Iluminacion</a></li>
+						<?php foreach ($categories as $key) : ?>											
+							<li><a href="<?= base_url(route_to('categoryPage', $key->id)) ?>"><?= $key->name ?></a></li>
+						<?php endforeach; ?>
 					</ul>
 					<!-- /NAV -->
 				</div>

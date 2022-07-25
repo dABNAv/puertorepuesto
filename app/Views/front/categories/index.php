@@ -156,8 +156,8 @@
 									<div class="product-body">
 										<h3 class="product-name"><a href="#"> <?= $key->name ?> </a></h3>
 										<h4 class="product-price">$ <?= number_format($key->price, 0, '', '.') ?> </h4>
-										<div class="product-btns">
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+										<div>
+											<button class="btn btn-success"><a href="<?= base_url(route_to('productPage', $key->id)) ?>">Detalles</a></button>
 										</div>
 									</div>
 									<div class="add-to-cart">
@@ -171,7 +171,7 @@
 						<!-- /store products -->
 
 						<!-- store bottom filter -->
-						<div class="store-filter clearfix">
+						<!--<div class="store-filter clearfix">
 							<span class="store-qty">Showing 20-100 products</span>
 							<ul class="store-pagination">
 								<li class="active">1</li>
@@ -180,7 +180,7 @@
 								<li><a href="#">4</a></li>
 								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- /store bottom filter -->
 					</div>
 					<!-- /STORE -->
