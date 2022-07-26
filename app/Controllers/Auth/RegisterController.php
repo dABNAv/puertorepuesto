@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Entities\UsersEntities;
-
+use App\Models\UsersModel;
 
 class RegisterController extends BaseController
 {
@@ -27,13 +27,16 @@ class RegisterController extends BaseController
             //dd($validation->getErrors());
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
-
-        $model = model('UsersModel');
-
-        $user_enti = new UsersEntities($this->request->getPost());
-        $user_enti->generateName();
-
-        $model->save($user_enti);
+        $password = password_hash('password',PASSWORD_DEFAULT);
+        $users = new UsersModel();
+        $datos = [
+            'name' => $this->request->getVar('name'),
+            'surname' => $this->request->getVar('surname'),
+            'email' => $this->request->getVar('email'),
+            'password' => $password
+        ];
+        $users->insert($datos);
+        return redirect()->route('homePage');
     }
 
 }

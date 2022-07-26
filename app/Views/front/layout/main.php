@@ -81,12 +81,14 @@ use App\Models\CategoriesModel;
 							<div class="header-search">
 								<form>
 									<select class="input-select">
-									<?php foreach ($categories as $key) : ?>				
-										<option value="0"><?= $key->name ?></option>
+										<?php foreach ($categories as $key) : ?>				
+											<option value="0">
+												<a href="<?= base_url(route_to('categoryPage', $key->id)) ?>"> <?= $key->name ?></a>
+											</option>
 										<?php endforeach; ?>	
 									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Busqueda</button>
+									<input class="input" placeholder="Busqueda...">
+									<button class="search-btn">Buscar</button>
 								</form>
 							</div>
 						</div>

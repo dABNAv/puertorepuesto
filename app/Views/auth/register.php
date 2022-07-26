@@ -3,9 +3,10 @@
 
 
 
+
 <div class="container">
 
-    <div class="abs-center">
+    <div class="col-md-6">
         
         <form action="<?=  base_url('auth/store') ?>" class="border p-3 form" method="POST">
             &nbsp;
@@ -35,13 +36,41 @@
                 <label for="c-password">Repite tu Contraseña</label>
                 <input type="password" name="c-password" id="c-password" class=" form-control">
             </div>
-
-
-            <button type="submit" class="btn btn-primary">Registrate</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Registrate</button>
+            </div>
         </form>
+            &nbsp;
     </div>
 
+    <div class="col-md-6">
+        
+        <form action="" class="border p-3 form" method="POST">
+            &nbsp;
+            <h1 class="text-center">Logeate!</h1>
+            <div class="form-group">
+                <label for="emailLogin">Correo</label>
+                <input type="email" name="emailLogin" id="emailLogin" class="form-control" value="<?= old('email') ?>">
+                <p class="text-danger"><?= session('errors.emailLogin') ?></p>
+            </div>
+            <div class="form-group">
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" name="passwordLogin" id="passwordLogin" class="form-control">
+                <p class="text-danger"><?= session('errors.passwordLogin') ?></p>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+        </form>
+            &nbsp;
+    </div>
+            
 </div>
+
+
+
+
+
 
 
 
