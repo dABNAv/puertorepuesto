@@ -36,7 +36,7 @@ class ProductsModel extends Model
     {
         $db = Database::connect();
         $builder = $db->table('product_images');
-        $builder->select('product_images.name');
+        $builder->select('product_images.id, product_images.name');
         $builder->where('product_images.product_id', $product_id);
         $builder->orderBy('product_images.id', 'ASC');
         $query = $builder->get();

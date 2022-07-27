@@ -23,6 +23,7 @@ $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
     $routes->get('/', 'HomeController::index', ['as' => 'homePage']);
     $routes->get('producto/(:num)', 'HomeController::viewProduct/$1', ['as' => 'productPage']);
     $routes->get('categoria/(:num)', 'HomeController::viewCategory/$1', ['as' => 'categoryPage']);
+    $routes->get('carro', 'HomeController::cart', ['as' => 'cart']);
    /* $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
     {
         $routes->get('/', 'HomeController::index', ['as' => 'homeCusomer']);
@@ -69,6 +70,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->get('/', 'ProductsController::index', ['as' => 'productsList']);
         $routes->get('nuevo', 'ProductsController::create', ['as' => 'productsCreate']);
         $routes->post('save', 'ProductsController::save', ['as' => 'productsSave']);
+        $routes->get('editar/(:num)', 'ProductsController::edit/$1', ['as' => 'productsEdit']);
+        $routes->post('update', 'ProductsController::update', ['as' => 'productsUpdate']);
+        $routes->get('eliminar/(:num)', 'ProductsController::delete/$1', ['as' => 'productsDelete']);
     });
 
     $routes->group('auto/marca', function($routes)

@@ -25,17 +25,28 @@ class HomeController extends BaseController
 
     public function viewCategory($id)
     {
-        
-        $products = new ProductsModel();
-        $category = new CategoriesModel();
+        $productModel = new ProductsModel();
+        $categoryModel = new CategoriesModel();
+        $products = [];
+
+        foreach ($productModel->getProductByCategory($id) as $product) {
+            $images = $productModel->getImages($product->id);
+            $product->image = (count($images)) ? $images[0]->name : '';
+            
+            $products[] = $product;
+        }
+
         $data = [
-            'product' => $products->getProductByCategory($id),
-            'images' => $products->getImages($id),
-            'category' => $category->getCategoryById($id)
+            'category' => $categoryModel->getCategoryById($id),
+            'products' => $products
         ];
         
         return view('front/categories/index', $data);
     }
-        
+
+    public function cart()
+    {
+        return view('front/cart');
+    }    
 }
     

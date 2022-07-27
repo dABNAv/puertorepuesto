@@ -146,18 +146,18 @@
 						<!-- store products -->
 						<div class="row">
 
-						<?php foreach ($product as $key) : ?>
+						<?php foreach ($products as $key) : ?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="" alt="">
+										<img src="<?= base_url('uploads/products/' . $key->image) ?>" alt="<?= $key->name ?>" style="height: 250px;">
 									</div>
 									<div class="product-body">
 										<h3 class="product-name"><a href="#"> <?= $key->name ?> </a></h3>
 										<h4 class="product-price">$ <?= number_format($key->price, 0, '', '.') ?> </h4>
 										<div>
-											<button class="btn btn-success"><a href="<?= base_url(route_to('productPage', $key->id)) ?>">Detalles</a></button>
+											<a class="btn btn-default" href="<?= base_url(route_to('productPage', $key->id)) ?>">Detalles</a>
 										</div>
 									</div>
 									<div class="add-to-cart">

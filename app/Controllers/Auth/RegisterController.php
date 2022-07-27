@@ -27,7 +27,7 @@ class RegisterController extends BaseController
             //dd($validation->getErrors());
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
-        $password = password_hash('password',PASSWORD_DEFAULT);
+        $password = password_hash($this->request->getVar('password'),PASSWORD_DEFAULT);
         $users = new UsersModel();
         $datos = [
             'name' => $this->request->getVar('name'),

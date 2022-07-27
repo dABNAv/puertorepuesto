@@ -56,6 +56,12 @@ use App\Models\CategoriesModel;
 						<li><a><i class="fa fa-envelope-o"></i>puertorepuesto@contacto.cl</a></li>
 						<li><a><i class="fa fa-map-marker"></i>Anibal Pinto #670, Puerto Montt</a></li>
 					</ul>
+
+					<?php if (session()->get('is_logged')): ?>
+						<ul class="header-links pull-right">
+							<li><a href="<?= base_url(route_to('signout')); ?>"><i class="fa fa-close"></i> Cerrar sesion</a></li>
+						</ul>
+					<?php endif; ?>
 				</div>
 			</div>
 			<!-- /TOP HEADER -->
@@ -81,8 +87,9 @@ use App\Models\CategoriesModel;
 							<div class="header-search">
 								<form>
 									<select class="input-select">
+										<option value="" selected>Todo</option>
 										<?php foreach ($categories as $key) : ?>				
-											<option value="0">
+											<option value="<?= $key->id ?>">
 												<a href="<?= base_url(route_to('categoryPage', $key->id)) ?>"> <?= $key->name ?></a>
 											</option>
 										<?php endforeach; ?>	
@@ -93,13 +100,26 @@ use App\Models\CategoriesModel;
 							</div>
 						</div>
 						<!-- /SEARCH BAR -->
-
+						
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
 								<!-- Wishlist -->
+								<?php
+									$myAccountUrl = base_url(route_to('register'));
+									$isLogged = session()->get('is_logged');
+
+									if ($isLogged) {
+										if (session()->get('role') == 'Customer') {
+											$myAccountUrl = 'cliente';
+										} else {
+											$myAccountUrl = base_url(route_to('homeAdmin'));
+										}
+									}
+								?>
+
 								<div>
-									<a href="<?= base_url(route_to('register')) ?>">
+									<a href="<?= $myAccountUrl ?>">
 										<i class="fa fa-user"></i>
 										<span>Mi cuenta</span>
 									</a>
@@ -113,39 +133,6 @@ use App\Models\CategoriesModel;
 										<span>Tu Carro</span>
 										<div class="qty">3</div>
 									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="<?= base_url('assets/frontend/img/product01.png'); ?>" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$10.000</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="<?= base_url('assets/frontend/img/product02.png'); ?>" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$50.000</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>3 Item(s) selected</small>
-											<h5>SUBTOTAL: $2940.00</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
 								</div>
 								<!-- /Cart -->
 

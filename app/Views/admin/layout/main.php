@@ -158,6 +158,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-dollar-sign"></i>
+              <p>
+                Compras
+              </p>
+            </a>
+          </li>
 
           <li class="nav-item">
             <a href="<?= base_url(route_to('signout')); ?>" class="nav-link">

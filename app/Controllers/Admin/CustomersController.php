@@ -35,7 +35,7 @@ class CustomersController extends BaseController
             ])
             ->with('errors', $this->validator->getErrors());
         }
-        $password = password_hash('password',PASSWORD_DEFAULT);
+        $password = password_hash($this->request->getVar('password'),PASSWORD_DEFAULT);
         $users = new UsersModel();
         $datos = [
             'name' => $this->request->getVar('name'),

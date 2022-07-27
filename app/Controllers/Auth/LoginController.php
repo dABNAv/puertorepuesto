@@ -64,7 +64,7 @@ class LoginController extends BaseController
     public function signout()
     {
         session()->destroy();
-        return redirect()->route('login');
+        return redirect()->route('homePage');
     }
 
         
