@@ -16,28 +16,78 @@
           </div>
 
           <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
+                <td style="width: 25%;">
+                  <img src="https://www.repuestodo.cl/pub/media/catalog/product/cache/38c33a87ced4126ef430dbf3a98faaeb/d/_/d_854771-mlc46026180044_052021-o_vztslmicqkcwyvtw.jpg" alt="" class="img-responsive img-rounded" style="width: 120px; height: 120px;">
+                </td>
+                <td>
+                  <p>Sensor oxigeno</p>
+                  <strong>$25.000</strong>
+                </td>
+                <td style="width: 20%;">
+                  <div class="form-group">
+                    <label>Cantidad</label>
+                    <select name="asd" class="form-control">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn btn-sm btn-danger" style="margin-top: 27px;"><i class="fa fa-trash"></i></button>
+                </td>
               </tr>
               <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
+                <td style="width: 25%;">
+                  <img src="https://www.repuestodo.cl/pub/media/catalog/product/cache/38c33a87ced4126ef430dbf3a98faaeb/d/_/d_904486-mlc41904455877_052020-o_ftvrwxhhgeayogfi.jpg" alt="" class="img-responsive img-rounded" style="width: 120px; height: 120px;">
+                </td>
+                <td>
+                  <p>Bomba agua</p>
+                  <strong>$10.000</strong>
+                </td>
+                <td style="width: 20%;">
+                  <div class="form-group">
+                    <label>Cantidad</label>
+                    <select name="asd" class="form-control">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn btn-sm btn-danger" style="margin-top: 27px;"><i class="fa fa-trash"></i></button>
+                </td>
               </tr>
               <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
+                <td style="width: 25%;">
+                  <img src="https://www.repuestodo.cl/pub/media/catalog/product/cache/38c33a87ced4126ef430dbf3a98faaeb/a/0/a0166897-38357.jpg" alt="" class="img-responsive img-rounded" style="width: 120px; height: 120px;">
+                </td>
+                <td>
+                  <p>Ampolleta 2C Nissan</p>
+                  <strong>$2.000</strong>
+                </td>
+                <td style="width: 20%;">
+                  <div class="form-group">
+                    <label>Cantidad</label>
+                    <select name="asd" class="form-control">
+                      <option value="1">1</option>
+                      <option value="2" selected>2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn btn-sm btn-danger" style="margin-top: 27px;"><i class="fa fa-trash"></i></button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -53,7 +103,7 @@
         <div class="order-summary">
           <div class="order-col">
             <div><strong>TOTAL</strong></div>
-            <div><strong class="order-total">$2940.00</strong></div>
+            <div><strong class="order-total">$39.000</strong></div>
           </div>
         </div>
         <div class="payment-method">

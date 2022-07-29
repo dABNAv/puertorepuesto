@@ -128,10 +128,9 @@ use App\Models\CategoriesModel;
 
 								<!-- Cart -->
 								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<a href="<?= base_url(route_to('cart')) ?>">
 										<i class="fa fa-shopping-cart"></i>
-										<span>Tu Carro</span>
-										<div class="qty">3</div>
+										<span>Carrito</span>
 									</a>
 								</div>
 								<!-- /Cart -->
