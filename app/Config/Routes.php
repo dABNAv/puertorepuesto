@@ -24,6 +24,8 @@ $routes->group('', ['namespace' => 'App\Controllers\Front'], function($routes)
     $routes->get('producto/(:num)', 'HomeController::viewProduct/$1', ['as' => 'productPage']);
     $routes->get('categoria/(:num)', 'HomeController::viewCategory/$1', ['as' => 'categoryPage']);
     $routes->get('carro', 'HomeController::cart', ['as' => 'cart']);
+    $routes->get('pago/exito', 'HomeController::paymentSuccess', ['as' => 'paymentSuccess']);
+    $routes->get('pago/error', 'HomeController::paymentError', ['as' => 'paymentError']);
    /* $routes->group('mi-cuenta', ['filter' => 'auth'], function($routes)
     {
         $routes->get('/', 'HomeController::index', ['as' => 'homeCusomer']);

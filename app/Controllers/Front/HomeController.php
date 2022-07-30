@@ -47,6 +47,16 @@ class HomeController extends BaseController
     public function cart()
     {
         return view('front/cart');
-    }    
+    }  
+    
+    public function paymentSuccess()
+    {
+        return view('front/payment/success');
+    }
+
+    public function paymentError()
+    {
+        return view('front/payment/error');
+    }
 }
     
