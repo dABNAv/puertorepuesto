@@ -9,7 +9,31 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return view('front/index');
+        $productModel = new ProductsModel();
+        
+        $lastProducts = [];
+        $bestSellerProducts = [];
+
+        foreach ($productModel->getLastProducts() as $product) {
+            $images = $productModel->getImages($product->id);
+            $product->image = (count($images)) ? $images[0]->name : '';
+            
+            $lastProducts[] = $product;
+        }
+
+        foreach ($productModel->getBestSellerProducts() as $product) {
+            $images = $productModel->getImages($product->id);
+            $product->image = (count($images)) ? $images[0]->name : '';
+            
+            $bestSellerProducts[] = $product;
+        }
+
+        $data = [
+            'lastProducts' => $lastProducts,
+            'bestSellerProducts' => $bestSellerProducts
+        ];
+
+        return view('front/index', $data);
     }
 
     public function viewProduct($id)

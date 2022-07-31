@@ -67,4 +67,32 @@ class ProductsModel extends Model
         
         return $query->getResult();
     }
+
+    public function getLastProducts()
+    {
+        $db = Database::connect();
+        $builder = $db->table('products');
+        $builder->select('products.*, categories.name as category_name');
+        $builder->join('categories', 'categories.id = products.category_id');
+        $builder->where('products.deleted_at', null);
+        $builder->orderBy('products.id', 'DESC');
+        $builder->limit(8);
+        $query = $builder->get();
+        
+        return $query->getResult(); 
+    }
+
+    public function getBestSellerProducts()
+    {
+        $db = Database::connect();
+        $builder = $db->table('products');
+        $builder->select('products.*, categories.name as category_name');
+        $builder->join('categories', 'categories.id = products.category_id');
+        $builder->where('products.deleted_at', null);
+        $builder->orderBy('products.id', 'DESC');
+        $builder->limit(8);
+        $query = $builder->get();
+        
+        return $query->getResult(); 
+    }
 }

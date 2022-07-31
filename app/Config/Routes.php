@@ -97,6 +97,11 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->get('eliminar/(:num)', 'CarModelsController::delete/$1', ['as' => 'carModelsDelete']);
     });
 
+    $routes->group('compras', function($routes)
+    {
+        $routes->get('/', 'OrdersController::index', ['as' => 'ordersList']);
+    });
+
 });
 
 // Auth routes
