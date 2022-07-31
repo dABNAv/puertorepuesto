@@ -90,7 +90,7 @@
 													
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar al carro</button>
 												</div>
 											</div>
 										<?php endforeach; ?>
@@ -155,7 +155,7 @@
 													
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Agregar al carro</button>
 												</div>
 											</div>
 										<?php endforeach; ?>

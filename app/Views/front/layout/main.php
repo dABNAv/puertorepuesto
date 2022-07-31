@@ -1,10 +1,12 @@
 <?php
-
-use App\Models\CategoriesModel;
-
-	$category = new CategoriesModel();
-	$categories = $category->getCategories()	
-
+	use App\Models\CategoriesModel;
+		$category = new CategoriesModel();
+		$categories = $category->getCategories()	
+?>
+<?php
+	use App\Models\UsersModel;
+		$user = new UsersModel();
+		$users = $user->findAll();
 ?>
 
 
@@ -53,8 +55,8 @@ use App\Models\CategoriesModel;
 				<div class="container">
 					<ul class="header-links pull-left">
 						<li><a><i class="fa fa-phone"></i>+569 12345678</a></li>
-						<li><a><i class="fa fa-envelope-o"></i>nombretienda@ejemplo.cl</a></li>
-						<li><a><i class="fa fa-map-marker"></i>Direccion de la tienda</a></li>
+						<li><a><i class="fa fa-envelope-o"></i>correodelatienda@contacto.cl</a></li>
+						<li><a><i class="fa fa-map-marker"></i>Direccion fisica de la tienda</a></li>
 					</ul>
 
 					<?php if (session()->get('is_logged')): ?>
@@ -119,10 +121,18 @@ use App\Models\CategoriesModel;
 								?>
 
 								<div>
+								<?php if (session()->get('is_logged')): ?>
+									<a href="">
+										<i class="fa fa-user"></i>
+										<span> Esteban Barria </span>
+									</a>
+								<?php else: ?>
 									<a href="<?= $myAccountUrl ?>">
 										<i class="fa fa-user"></i>
 										<span>Mi cuenta</span>
 									</a>
+								<?php endif; ?>
+
 								</div>
 								<!-- /Wishlist -->
 
@@ -215,11 +225,11 @@ use App\Models\CategoriesModel;
 						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Nosotros</h3>
-								<p>Breve descripcion sobre la tienda.</p>
+								<p>Breve palabras a cerca de la empresa</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>Direccion de la tienda</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Direccion fisica de la tienda</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>+569 12345678</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>nombretienda@ejemplo.cl</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>correodelatienda@contacto.cl</a></li>
 								</ul>
 							</div>
 						</div>
