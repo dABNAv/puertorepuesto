@@ -53,8 +53,8 @@ use App\Models\CategoriesModel;
 				<div class="container">
 					<ul class="header-links pull-left">
 						<li><a><i class="fa fa-phone"></i>+569 12345678</a></li>
-						<li><a><i class="fa fa-envelope-o"></i>puertorepuesto@contacto.cl</a></li>
-						<li><a><i class="fa fa-map-marker"></i>Anibal Pinto #670, Puerto Montt</a></li>
+						<li><a><i class="fa fa-envelope-o"></i>nombretienda@ejemplo.cl</a></li>
+						<li><a><i class="fa fa-map-marker"></i>Direccion de la tienda</a></li>
 					</ul>
 
 					<?php if (session()->get('is_logged')): ?>
@@ -215,11 +215,11 @@ use App\Models\CategoriesModel;
 						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Nosotros</h3>
-								<p>Empresa dedicada a la venta de repuestos para automoviles.</p>
+								<p>Breve descripcion sobre la tienda.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>Anibal Pinto #670, Puerto Montt</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Direccion de la tienda</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>+569 12345678</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>puertorepuesto@contacto.cl</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>nombretienda@ejemplo.cl</a></li>
 								</ul>
 							</div>
 						</div>
